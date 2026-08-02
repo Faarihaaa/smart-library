@@ -1,0 +1,27 @@
+<html>
+<head>
+    <!-- Step 1: Makes the page fit mobile screens properly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Step 3: Links your mobile app settings file -->
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Smart Library</h1>
+
+    {% if logged_in %}
+        <p>Welcome, {{ user }}!</p>
+        <a href="/books"><button>Browse Books</button></a>
+        <a href="/search"><button>Search Books</button></a>
+        <a href="/logout"><button>Logout</button></a>
+    {% else %}
+        <a href="/login"><button>Login</button></a>
+    {% endif %}
+</div>
+
+</body>
+</html>        
