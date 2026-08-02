@@ -1,0 +1,85 @@
+body{
+    background:#e6f2ff;
+    font-family:Arial;
+    text-align:center;
+}
+
+.container{
+    margin-top:120px;
+}
+
+h1{
+    color:#003366;
+    font-size:50px;
+}
+
+p{
+    font-size:22px;
+    color:#444;
+}
+
+button{
+    padding:15px 30px;
+    margin:15px;
+    font-size:20px;
+    background:#0078ff;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0055cc;
+}
+.book-card {
+    text-align: left;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.book-info {
+    margin-bottom: 8px;
+}
+
+.star-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.star-rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    font-size: 28px;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #ffb400;
+}
+
+.rate-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.rate-btn:hover {
+    background-color: #45a049;
+}
