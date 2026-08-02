@@ -1,0 +1,41 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container" style="width: 600px;">
+    <h1>Search Books</h1>
+    <p>Logged in as {{ user }}</p>
+
+    <form method="GET" action="/search">
+        <input type="text" name="q" placeholder="Search any book..." value="{{ query }}" style="width: 70%;">
+        <button type="submit">Search</button>
+    </form>
+
+    <br>
+
+    {% for book in results %}
+        <div style="display: flex; border-bottom: 1px solid #eee; padding: 15px 0; text-align: left;">
+            {% if book.thumbnail %}
+                <img src="{{ book.thumbnail }}" style="height: 100px; margin-right: 15px;">
+            {% endif %}
+            <div>
+                <strong>{{ book.title }}</strong><br>
+                <em>{{ book.authors }}</em><br>
+                <p style="font-size: 13px; color: #555;">{{ book.description }}</p>
+                <a href="{{ book.preview_link }}" target="_blank">View on Google Books</a>
+                {% if book.download_link %}
+                    &nbsp;|&nbsp;
+                    <a href="{{ book.download_link }}" target="_blank" style="color: green;">Download Free (Public Domain)</a>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+
+    <br>
+    <a href="/">Back to Home</a>
+</div>
+
+</body>
+</html>
