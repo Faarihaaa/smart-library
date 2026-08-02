@@ -1,0 +1,27 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Recommended for You</h1>
+    <p>Logged in as {{ user }}</p>
+
+    {% if books %}
+        {% for book in books %}
+            <div style="border-bottom: 1px solid #ddd; padding: 10px 0;">
+                <strong>{{ book[1] }}</strong> by {{ book[2] }} ({{ book[3] }})
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No recommendations yet — rate a few books 4 or 5 stars first!</p>
+    {% endif %}
+
+    <br>
+    <a href="/books">Browse All Books</a><br>
+    <a href="/">Back to Home</a>
+</div>
+
+</body>
+</html>
