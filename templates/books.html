@@ -1,0 +1,44 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Book Catalog</h1>
+    <p>Logged in as {{ user }}</p>
+
+    {% if rated %}
+        <p style="color:green;">Thanks for your rating!</p>
+    {% endif %}
+
+    {% for book in books %}
+        <div class="book-card">
+            <div class="book-info">
+                <strong>{{ book[1] }}</strong> by {{ book[2] }} ({{ book[3] }})
+            </div>
+            <form method="POST" action="/rate/{{ book[0] }}" class="star-form">
+                <div class="star-rating">
+                    <input type="radio" id="star5-{{ book[0] }}" name="rating" value="5" />
+                    <label for="star5-{{ book[0] }}">&#9733;</label>
+                    <input type="radio" id="star4-{{ book[0] }}" name="rating" value="4" />
+                    <label for="star4-{{ book[0] }}">&#9733;</label>
+                    <input type="radio" id="star3-{{ book[0] }}" name="rating" value="3" />
+                    <label for="star3-{{ book[0] }}">&#9733;</label>
+                    <input type="radio" id="star2-{{ book[0] }}" name="rating" value="2" />
+                    <label for="star2-{{ book[0] }}">&#9733;</label>
+                    <input type="radio" id="star1-{{ book[0] }}" name="rating" value="1" />
+                    <label for="star1-{{ book[0] }}">&#9733;</label>
+                </div>
+                <button type="submit" class="rate-btn">Rate</button>
+            </form>
+        </div>
+    {% endfor %}
+
+    <br>
+    <a href="/recommendations">See My Recommendations</a><br>
+    <a href="/">Back to Home</a>
+</div>
+
+</body>
+</html>
